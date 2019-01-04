@@ -13,4 +13,18 @@ heroku open
 git push origin master (workingMatt/iCellWeb.git)
 git push heroku master (https://ancient-caverns-23781.herokuapp.com/db)
 
+To add data to postgres database...
 
+locally...
+$ psql
+$ create table test_table (id integer, name text);
+$ insert into test_table (1, "hello local database");
+$ show * from test_table
+
+heroku...
+$ heroku pg:psql
+$ create table test_table (id integer, name text);
+$ insert into test_table (1, "hello local database");
+$ show * from test_table
+
+I removed the need for SSL because I couldn't be arsed to install certificates locally (https://github.com/PostgresApp/PostgresApp/issues/404 or https://www.postgresql.org/docs/9.6/ssl-tcp.html)

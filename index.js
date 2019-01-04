@@ -8,6 +8,8 @@ const pool = new Pool({
 	ssl: false
 });
 
+console.log("DATABASE_URL: "+process.env.DATABASE_URL);
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
