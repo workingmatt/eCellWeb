@@ -1,0 +1,16 @@
+
+
+
+2019-01-04
+
+After much contemplation I decided to go with a nodejs/jquery web app because I'm most familiar in this environment. I also don't think this app is overly complicated.
+I did keep the heroku production environment found in the Ruby on Rails tutorial I'd started. This is a good process for setting up a heroku compatible nodejs application: https://devcenter.heroku.com/articles/getting-started-with-nodejs
+This has a postgresql database as an addon on the heroku instance, but not locally...
+
+npm start (localhost:5000)
+heroku open
+
+git push origin master (workingMatt/iCellWeb.git)
+git push heroku master (https://ancient-caverns-23781.herokuapp.com/db)
+
+
