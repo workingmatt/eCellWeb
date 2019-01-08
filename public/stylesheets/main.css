@@ -1,7 +1,14 @@
+.dragMe {
+  cursor: move;
+}
+
+.draggingMe {
+
+}
+
 [class*="col-"] {
   border: 1px solid #80aa00;
 }
-
 
 /* columns of same height styles */
 .container-xs-height {

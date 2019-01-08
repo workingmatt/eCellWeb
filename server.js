@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const fs = require('fs');
+const imageFolder = './public/images/';
 
 const {Pool} = require('pg');
 const pool = new Pool({
@@ -14,6 +16,7 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+  
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/db', async(req,res) => {
@@ -27,6 +30,20 @@ express()
   		console.error(err);
   		res.send("Error: "+ err);
   	}
+  })
+
+  .get('/files', async(req,res) =>{
+    try {
+      fs.readdir(imageFolder, (err,files) => {
+        //files.forEach(file => {
+        //  console.log(file);
+        //});
+        res.send(files);
+      });
+    } catch (err) {
+      console.error(err);
+      res.send("Error: "+err);
+    }
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
