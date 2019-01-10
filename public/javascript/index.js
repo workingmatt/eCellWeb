@@ -1,39 +1,68 @@
 $(document).ready(function(){
 
 	//get top left position of draggable
-	var coordinates = function(element) {
-		console.log("coords");
-		element = $(element);
-		var top = element.position().top;
-		var left = element.position().left;
-		var toffset = element.offset().top;
-		var loffset = element.offset().left;
-		$('#results').text('X:'+left+' Y:'+top+' Xoff:'+loffset+' Yoff:'+toffset);
+	var startDrag = function(event) {
+		var draggedDiv = $(event.target.parentElement);
+		draggedDiv.addClass("draggingMe");
+		$('#results').append(Date.now()+': Start dragging '+draggedDiv.attr('id'));
 	}
+
+	var endDrag = function(event) {
+	// 	console.log(event);
+	 	var draggedDiv = $(event.target.parentElement);
+	// 	var p = draggedDiv.position();
+	 	draggedDiv.removeClass("draggingMe");
+	// 	$('#results').append(' : Stop dragging X:'+p.left+' Y:'+p.top+' w/h: ');
+	 }
+
+	$('#target').append('<div class="dropZone" id="hospDrop"></div>');
+	$('.dropZone#hospDrop').css({
+	    "top": "500px",
+	    "left": "400px",
+	    "height": "200px",
+	    "width": "200px",
+	    "background": "blue",
+	    "border-color": "red"
+	});
+
+	$('.dropZone#hospDrop').droppable({
+		accept: "#hospital",
+		drop: function(event, ui){
+			var dropped = $(event.toElement.parentElement);
+			var dropzone = $(event.target);
+			console.log("Got drop event");
+			console.log(event);
+			console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
+			console.log($());
+		}
+	});
 
 	//get list of image files
 	$.ajax({
 		url: "/files",
 		success: function(data){
-			console.log("Got file list!\n"+data);
+			console.log("Got file list!");
 			data.forEach(file => {
 				if (file !== "city.png") {
-					$("#main").append('<div class="col-sm-6 col-md-2 dragMe"><img src="/images/'+file+'" width="100%"></div>');
+					filename = file.substring(0, file.length-4);
+					$("#target").append('<div class="col-xs-2 col-sm-2 col-md-2 dragMe" id="'+filename+'"><img src="/images/'+file+'"></div>');
 				}
 			});
 
 			$('.dragMe').draggable({
 				containment: 'document',
 				revert: "invalid",
-				containment: "#contain",
-				start: function(){
-					coordinates('.dragMe');
+				containment: $(".div"),
+				snap: ".dragMe",
+				start: function(event){
+					console.log("Start drag");
+					startDrag(event);
 				},
-				stop: function(){
-					coordinates('.dragMe');
+				stop: function(event){
+					console.log("Stop drag");
+					endDrag(event);
 				}
 			});
 		}
 	});
-
 });
