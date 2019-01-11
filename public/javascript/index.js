@@ -1,41 +1,50 @@
 $(document).ready(function(){
+	var makeDropZone = function(targetId, left, top, width, height, acceptableId){
+		$('#target').append('<div class="dropZone" id="'+targetId+'"></div>');
+
+		$('.dropZone#'+targetId).css({
+		    "top": top+"%",
+		    "left": left+"%",
+		    "height": height+"%",
+		    "width": width+"%"
+		});
+
+		var tempId = '#'+acceptableId;
+
+		$('.dropZone#'+targetId).droppable({
+			accept: tempId,
+			drop: function(event){
+				var dropped = $(event.toElement.parentElement);
+				var dropzone = $(event.target); 
+				console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
+				}
+		});
+	}
+
+//	makeDropZone(targetId, left, top, width, height, acceptableId);
+	makeDropZone("sciDrop", 40, 38, 18, 20, "science");
+	makeDropZone("airDrop", 0, 9, 20, 25, "airport");
+	makeDropZone("consDrop", 13, 53, 27, 27, "construction");
+	makeDropZone("restDrop", 47, 0, 22, 17, "restaurant");
+	makeDropZone("hospDrop", 71, 23, 21, 17, "hospital");
+	makeDropZone("roadDrop", 15, 17, 70, 60, "road");
 
 	//get top left position of draggable
 	var startDrag = function(event) {
-		var draggedDiv = $(event.target.parentElement);
+		var draggedDiv = $(event.target);
+		console.log(draggedDiv);
 		draggedDiv.addClass("draggingMe");
+		$('.draggingMe > img').addClass("draggingMe");
 		$('#results').append(Date.now()+': Start dragging '+draggedDiv.attr('id'));
 	}
 
 	var endDrag = function(event) {
-	// 	console.log(event);
-	 	var draggedDiv = $(event.target.parentElement);
-	// 	var p = draggedDiv.position();
+	 	var draggedDiv = $(event.target);
+		$('.draggingMe > img').removeClass("draggingMe");
 	 	draggedDiv.removeClass("draggingMe");
-	// 	$('#results').append(' : Stop dragging X:'+p.left+' Y:'+p.top+' w/h: ');
 	 }
 
-	$('#target').append('<div class="dropZone" id="hospDrop"></div>');
-	$('.dropZone#hospDrop').css({
-	    "top": "500px",
-	    "left": "400px",
-	    "height": "200px",
-	    "width": "200px",
-	    "background": "blue",
-	    "border-color": "red"
-	});
 
-	$('.dropZone#hospDrop').droppable({
-		accept: "#hospital",
-		drop: function(event, ui){
-			var dropped = $(event.toElement.parentElement);
-			var dropzone = $(event.target);
-			console.log("Got drop event");
-			console.log(event);
-			console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
-			console.log($());
-		}
-	});
 
 	//get list of image files
 	$.ajax({
@@ -50,7 +59,6 @@ $(document).ready(function(){
 			});
 
 			$('.dragMe').draggable({
-				containment: 'document',
 				revert: "invalid",
 				containment: $(".div"),
 				snap: ".dragMe",
@@ -65,4 +73,7 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+
+
 });

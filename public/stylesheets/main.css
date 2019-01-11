@@ -7,10 +7,11 @@
 
 .dropZone {
     position: absolute;
+    border: 3px solid red;
 }
 
-.ui-droppable-active {
-
+.ui-droppable-hover {
+    background: #00FF0099;
 }
 
 .dragMe {
@@ -24,7 +25,7 @@
 }
 
 .draggingMe {
-    background: red;
+    opacity: 0.7;
 }
 
 
