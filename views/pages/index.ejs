@@ -6,17 +6,36 @@
 
 <body>
 
-  <% include ../partials/nav.ejs %>
+	<% include ../partials/nav.ejs %>
 
-<div class="row">
-	<div class = "cl-xs-1 col-sm-1 col-md-1"></div>
-	<div class="col-xs-10 col-sm-10 col-md-10" id="target"><img src="/images/city.png" width="100%"></div>
-		<!-- index.js adds draggable icons here under #target div-->
-	<div class = "col-xs-1 col-sm-1 col-md-1"></div>
+	<div id="results"></div>
 
+	<div class="row">
+		<div id="city-page" class="page">
+			<div class = "cl-xs-1 col-sm-1 col-md-1"></div>
+			<div class="col-xs-10 col-sm-10 col-md-10" id="city"><img src="/images/city/background.png" width="100%"></div>
+			<!-- index.js adds draggable icons here under #target div-->
+			<div class = "col-xs-1 col-sm-1 col-md-1"></div>
+		</div>
+	</div>
 
-</div>
+	<div class="row">
+		<div id="airport-page" class="page">
+			<div class = "cl-xs-1 col-sm-1 col-md-1"></div>
+			<div class="col-xs-10 col-sm-10 col-md-10" id="cityAirport"><img src="/images/cityAirport/background.png" width="100%"></div>
+			<!-- index.js adds draggable icons here under #target div-->
+			<div class = "col-xs-1 col-sm-1 col-md-1"></div>
+		</div>
+	</div>
 
-<div id="results"></div>  
+	<div class="row">
+		<div id="body-page" class="page">
+			<div class = "cl-xs-1 col-sm-1 col-md-1"></div>
+			<div class="col-xs-10 col-sm-10 col-md-10" id="body"><img src="/images/body/background.png" width="100%"></div>
+			<!-- index.js adds draggable icons here under #target div-->
+			<div class = "col-xs-1 col-sm-1 col-md-1"></div>
+		</div>
+	</div>
+
 </body>
 </html>

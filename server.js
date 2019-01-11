@@ -2,7 +2,6 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const fs = require('fs');
-const imageFolder = './public/images/';
 
 const {Pool} = require('pg');
 const pool = new Pool({
@@ -33,6 +32,9 @@ express()
   })
 
   .get('/files', async(req,res) =>{
+    console.log("server.js get /files");
+    console.log(req.query.page);
+    var imageFolder = './public/images/'+req.query.page+'/';
     try {
       fs.readdir(imageFolder, (err,files) => {
         //files.forEach(file => {
