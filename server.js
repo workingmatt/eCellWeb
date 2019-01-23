@@ -9,8 +9,6 @@ const pool = new Pool({
 	ssl: false
 });
 
-console.log("DATABASE_URL: "+process.env.DATABASE_URL);
-
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -24,6 +22,8 @@ express()
   		const result = await client.query('SELECT * FROM  test_table');
   		const results = { 'results': (result) ? result.rows : null};
   		res.render('pages/db', results );
+      
+console.log(process.env);
   		client.release();
   	} catch (err) {
   		console.error(err);
