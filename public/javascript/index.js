@@ -124,8 +124,8 @@ $(document).ready(function(){
 		makeDropZone(pageName, "airGuardDrop", 0, 0, 100, 85, "airGuard");
 		makeDropZone(pageName, "airLuggageDrop", 0, 0, 100, 85, "airLuggage");
 		makeDropZone(pageName, "airToiletDrop", 0, 0, 100, 85, "airToilet");
-		makeDropZone(pageName, "airDisguiseDrop", 0, 0, 100, 85, "airDisguise");
-		makeDropZone(pageName, "airToothDrop", 0, 0, 100, 85, "airTooth");
+		//makeDropZone(pageName, "airDisguiseDrop", 0, 0, 100, 85, "airDisguise");
+		//makeDropZone(pageName, "airToothDrop", 0, 0, 100, 85, "airTooth");
 
 	pageName = "cityConstruction"
 		makePage(pageName);
@@ -202,22 +202,22 @@ $(document).ready(function(){
 
 	pageName = "bodyGust"
 		makePage(pageName);
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "gustBalloon");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "gustBlood");
-		//makeDropZone(pageName, "Drop", 0, 0, 100, 85, "gustContactless");
-		//makeDropZone(pageName, "Drop", 0, 0, 100, 85, "gustOneWay");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "gustSneeze");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "gustSpeaker");
+		makeDropZone(pageName, "gustBalloonDrop", 0, 0, 100, 85, "gustBalloon");
+		makeDropZone(pageName, "gustBloodDrop", 0, 0, 100, 85, "gustBlood");
+		//makeDropZone(pageName, "gustContactlessDrop", 0, 0, 100, 85, "gustContactless");
+		//makeDropZone(pageName, "gustOneWayDrop", 0, 0, 100, 85, "gustOneWay");
+		makeDropZone(pageName, "gustSneezeDrop", 0, 0, 100, 85, "gustSneeze");
+		makeDropZone(pageName, "gustSpeakerDrop", 0, 0, 100, 85, "gustSpeaker");
 
 
 	pageName = "bodyHeart"
 		makePage(pageName);
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "heartBlood");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "heartDrums");
-		//makeDropZone(pageName, "Drop", 0, 0, 100, 85, "heartParking");
-		//makeDropZone(pageName, "Drop", 0, 0, 100, 85, "heartPhone");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "heartPlug");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "heartSpring");
+		makeDropZone(pageName, "heartBloodDrop", 0, 0, 100, 85, "heartBlood");
+		makeDropZone(pageName, "heartDrumsDrop", 0, 0, 100, 85, "heartDrums");
+		//makeDropZone(pageName, "heartParkingDrop", 0, 0, 100, 85, "heartParking");
+		//makeDropZone(pageName, "heartPhoneDrop", 0, 0, 100, 85, "heartPhone");
+		makeDropZone(pageName, "heartPlugDrop", 0, 0, 100, 85, "heartPlug");
+		makeDropZone(pageName, "heartSpringDrop", 0, 0, 100, 85, "heartSpring");
 
 
 	pageName = "bodyScaffold"
@@ -241,17 +241,17 @@ $(document).ready(function(){
 
 	pageName = "adipose"
 		makePage(pageName);
-		//makeDropZone(pageName, "adiposeBoxDrop", 0, 0, 100, 85, "adiposeBox");
+		makeDropZone(pageName, "adiposeBoxDrop", 0, 0, 100, 85, "adiposeBox");
 		makeDropZone(pageName, "adiposePowerDrop", 0, 0, 100, 85, "adiposePower");
 		makeDropZone(pageName, "adiposeRepelDrop", 0, 0, 100, 85, "adiposeRepel");
 		makeDropZone(pageName, "adiposeThermometerDrop", 0, 0, 100, 85, "adiposeThermometer");
 
 	pageName = "carcinoma"
 		makePage(pageName);
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "carcinomaDisguise");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "carcinomaFish");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "carcinomaSkull");
-		makeDropZone(pageName, "Drop", 0, 0, 100, 85, "carcinomaSpread");
+		makeDropZone(pageName, "carcinomaDisguiseDrop", 0, 0, 100, 85, "carcinomaDisguise");
+		makeDropZone(pageName, "carcinomaFishDrop", 0, 0, 100, 85, "carcinomaFish");
+		makeDropZone(pageName, "carcinomaSkullDrop", 0, 0, 100, 85, "carcinomaSkull");
+		makeDropZone(pageName, "carcinomaSpreadDrop", 0, 0, 100, 85, "carcinomaSpread");
 
 	pageName = "cardiomyocytes"
 		makePage(pageName);
