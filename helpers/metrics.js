@@ -27,20 +27,32 @@ const addm = async (req, res) => {
 		console.log("in metrics.add function");
 		console.log(result);
 		console.log('after the result');
+		res.status(201).send("added metric");
 
 	} catch (err) {
 		console.log(err);
 		res.send("addm Error: "+ err);
 	}
-	//const {name, email} = req.body;
-	
-	//console.log(req.body);
+}
 
+const deletem = async (req, res) => {
+	try {
+		const client = await pool.connect();
+		const result = await client.query("DELETE FROM test_table WHERE name = 'auto inserted';");
+		console.log('deleted auto inserted');
+		res.status(201).send("deleted metric");
+	} catch (err) {
+		console.log(err);
+		res.send("deletem error: "+ err);
+	}
+}
+	//const {name, email} = req.body;
+	//console.log(req.body);
 	//res.send(result);
 	//res.status(201).send('Response from server to addMetric');
-}
 
 module.exports = {
 	addm,
 	getm,
+	deletem,
 }
