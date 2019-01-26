@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var imageNames;
 	var loadingImages = false;
 	var pageName = "nameOfPage";
+	var startInstant = Date.now();
 
 	var showPage = function(page){
 		$(".page").hide();
@@ -42,6 +43,7 @@ $(document).ready(function(){
 		$('.dropZone#'+targetId).droppable({
 			accept: tempId,
 			drop: function(event){
+	 			var interval = (startInstant-Date.now())/1000;
 				var dropped = $(event.toElement.parentElement);
 				var dropzone = $(event.target); 
 				console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
@@ -52,27 +54,28 @@ $(document).ready(function(){
 	//get top left position of draggable
 	var startDrag = function(event) {
 		var draggedDiv = $(event.target);
+	 	var interval = (startInstant-Date.now())/1000;
 		console.log(draggedDiv);
 		draggedDiv.addClass("draggingMe");
 		$('.draggingMe > img').addClass("draggingMe");
-		$('#results').append(Date.now()+': Start dragging '+draggedDiv.attr('id'));
+		$('#results').append(interval+': Start dragging '+draggedDiv.attr('id'));
 	}
 
 	var endDrag = function(event) {
 	 	var draggedDiv = $(event.target);
-		$('.draggingMe > img').removeClass("draggingMe");
+	 	var interval = (startInstant-Date.now())/1000;
 	 	draggedDiv.removeClass("draggingMe");
+		$('.draggingMe > img').removeClass("draggingMe");
+		$('#results').append(interval+'s: Stop dragging '+draggedDiv.attr('id'));
 	 }
 
 	//get list of image files
 	var getDraggableImages = function(page) {
-		console.log("Getting Draggable Images for "+page+" page");
 		loadingImages = true;
 		$.ajax({
 			url: "/files",
 			data: {"page": page},
 			success: function(data){
-				console.log("Got file list!");
 				loadingImages = false;
 				imageNames = data;
 
@@ -80,7 +83,6 @@ $(document).ready(function(){
 					if (file !== "background.png" && file!==".DS_Store") {
 						filename = file.substring(0, file.length-4);
 						$("#"+page).append('<div class="col-xs-2 col-sm-2 col-md-2 dragMe" id="'+filename+'"><img src="/images/'+page+'/'+file+'"></div>');
-						//This is where to make dropzones if I can figure out where to get the left, top, width, height data from
 					}
 				});
 
@@ -105,7 +107,6 @@ $(document).ready(function(){
 
 
 //	makeDropZone(page, targetId, left, top, width, height, acceptableId);
-//TODO - add script to add the page's divs currently hand coded into index.ejs.
 //TODO - add a json file to define location/size of dropzones rather than hardcode
 //TODO - once above is done, makeDropZone is loopable for all images found
 
