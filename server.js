@@ -14,9 +14,9 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/metrics', metrics.getm) //list all stored metrics
-  .post('/metrics', metrics.addm) //add a new metric to the database
+  .post('/metrics', metrics.addm) //add ax§ new metric to the database
   .delete('/metrics', metrics.deletem) //delete metric 'auto inserted'
-  
+
   .get('/files', async(req,res) =>{
     //console.log(req.query.page);
     var imageFolder = './public/images/'+req.query.page+'/';

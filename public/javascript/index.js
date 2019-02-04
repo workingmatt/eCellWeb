@@ -3,7 +3,25 @@ $(document).ready(function(){
 	var imageNames;
 	var loadingImages = false;
 	var pageName = "nameOfPage";
+
+	//Variable for metrics
 	var startInstant = Date.now();
+	var cityMainLoadTime;
+	var cityAirportDropTime;
+	var cityConstructionDropTime;
+	var cityHospitalDropTime;
+	var cityRestaurantDropTime;
+	var cityRoadDropTime;
+	var cityLaboratoryDropTime;
+
+	var bodyMainLoadTime;
+	var bodyBulbDropTime;
+	var bodyCutleryDropTime;
+	var bodyGustDropTime;
+	var bodyHeartDropTime;
+	var bodyScaffoldDropTime;
+	var bodyShieldDropTime;
+
 
 	var showPage = function(page){
 		$(".page").hide();
@@ -295,6 +313,13 @@ $(document).ready(function(){
 		makeDropZone(pageName, "pulmonaryBloodDrop", 0, 0, 100, 85, "pulmonaryBlood");
 		makeDropZone(pageName, "pulmonaryOilDrop", 0, 0, 100, 85, "pulmonaryOil");
 		makeDropZone(pageName, "pulmonaryRecycleDrop", 0, 0, 100, 85, "pulmonaryRecycle");
+
+	pageName = "custom"
+		makePage(pageName);
+		makeDropZone(pageName, "1Drop", 0,0,50,42,"1");
+		makeDropZone(pageName, "2Drop", 50,0,100,42,"2");
+		makeDropZone(pageName, "3Drop", 0,43,50,85,"3");
+		makeDropZone(pageName, "4Drop", 50,43,100,85,"4");
 
 	showPage("#cityMain-page");
 

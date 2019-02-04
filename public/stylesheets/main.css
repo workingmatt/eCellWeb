@@ -1,4 +1,6 @@
-
+table tr td{
+    border: 3px solid blue;
+}
 
 [class*="col-"] {
   border: 1px solid #80aa00;
@@ -7,11 +9,11 @@
 
 .dropZone {
     position: absolute;
-    border: 3px solid red;
+    border: 3px;
 }
 
 .ui-droppable-hover {
-    background: #00FF0099;
+    background: #00FF0000;
 }
 
 .dragMe {
