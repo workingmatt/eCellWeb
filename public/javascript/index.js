@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
 	var imageNames;
@@ -6,22 +8,43 @@ $(document).ready(function(){
 
 	//Variable for metrics
 	var startInstant = Date.now();
-	var cityMainLoadTime;
-	var cityAirportDropTime;
-	var cityConstructionDropTime;
-	var cityHospitalDropTime;
-	var cityRestaurantDropTime;
-	var cityRoadDropTime;
-	var cityLaboratoryDropTime;
 
-	var bodyMainLoadTime;
-	var bodyBulbDropTime;
-	var bodyCutleryDropTime;
-	var bodyGustDropTime;
-	var bodyHeartDropTime;
-	var bodyScaffoldDropTime;
-	var bodyShieldDropTime;
+	var times_cityMain = new Map();
+	var times_cityAirport = new Map();
+	var times_cityConstruction = new Map();
+	var times_cityHospital = new Map();
+	var times_cityRestaurant = new Map();
+	var times_cityRoad = new Map();
+	var times_cityScience = new Map();
 
+	var times_bodyMain = new Map();
+	var times_bodyBulb = new Map();
+	var times_bodyCutlery = new Map();
+	var times_bodyGust = new Map();
+	var times_bodyHeart = new Map();
+	var times_bodyScaffold = new Map();
+	var times_bodyShield = new Map();
+
+	var times_adipose = new Map();
+	var times_carcinoma = new Map();
+	var times_cardiomyocytes = new Map();
+	var times_endothelial = new Map();
+	var times_leukocytes = new Map();
+	var times_neurones = new Map();
+	var times_osteoclast = new Map();
+	var times_pulmonary = new Map();
+	//cityTimes.set(eventName,time_even-time_start);
+	
+	var times = {
+		times_cityMain,
+		times_cityAirport,
+		times_cityConstruction
+	}
+
+	var setEventTime = function(page, event){
+		times['times_'+page].set(event,((Date.now()-startInstant)/1000));
+		console.log('Set times_'+page+'['+event+']');
+	}
 
 	var showPage = function(page){
 		$(".page").hide();
@@ -45,7 +68,6 @@ $(document).ready(function(){
 		getDraggableImages(name);
 	}
 
-
 	var makeDropZone = function(page, targetId, left, top, width, height, acceptableId){
 		$('#'+page).append('<div class="dropZone" id="'+targetId+'"></div>');
 
@@ -61,10 +83,16 @@ $(document).ready(function(){
 		$('.dropZone#'+targetId).droppable({
 			accept: tempId,
 			drop: function(event){
-	 			var interval = (startInstant-Date.now())/1000;
+	 			var interval = (Date.now()-startInstant)/1000;
 				var dropped = $(event.toElement.parentElement);
 				var dropzone = $(event.target); 
 				console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
+				//setEventTime(page, dropped.attr('id'));
+				ga('send', {
+					hitType: 'event',
+					eventAction: 'Successful Drop',
+					eventLabel: (Date.now()-startInstant)/1000
+				});
 				}
 		});
 	}
@@ -114,6 +142,7 @@ $(document).ready(function(){
 					},
 					stop: function(event){
 						console.log("Stop drag");
+						console.log(times);
 						endDrag(event);
 					}
 				});
