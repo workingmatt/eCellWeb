@@ -28,8 +28,14 @@ const addm = async (req, res) => {
 		var date;
 		date = new Date().toISOString().slice(0, 19).replace('T', ' ');
  		const client = await pool.connect();	
-		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '"+date+"', 45);");
-		res.status(201).send("added metric");
+		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '"+date+"') RETURNING id;");
+	
+		console.log(result.rows[0]["id"]);
+
+		res.write(result.rows[0]["id"].toString());
+		//({'id':'mr matyt'});
+		res.send();
+		//res.sendStatus(200);
 		client.release();
 	} catch (err) {
 		console.log(err);
@@ -53,6 +59,8 @@ const updatem = async (req, res) => {
 	console.log("Updating record");
 	try {
 		console.log(req.body);
+		//const client = await pool.connect();
+		//const result = await client.query("INSERT INTO results ")
 	} catch (err) {
 		console.log(err);
 		res.send("update error: "+err);

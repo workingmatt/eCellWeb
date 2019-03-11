@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 	location.hash = "#city_main-page";
-
 	var imageNames;
 	var pageName = "nameOfPage";
 
@@ -59,7 +58,7 @@ $(document).ready(function(){
 	}
 
 	var startDrag = function(event) {
-		dropErrors = dropErrors +1;
+		dropErrors++;
 		var draggedDiv = $(event.target);
 		draggedDiv.addClass("draggingMe");
 		$('.draggingMe > img').addClass("draggingMe");
@@ -71,21 +70,16 @@ $(document).ready(function(){
 	 	console.log("working on page:"+page);
 	 	draggedDiv.removeClass("draggingMe");
 		$('.draggingMe > img').removeClass("draggingMe");
+
 		if((page == "#city_main-page")||(page == "#body_main-page")){
-			//good drop count = 6
 			if (dropCount==6){
-				//check relevant field is empty
-				//todo update record city_main_time/city_main_errors or body_main_time/body_main_errors
-				console.log("completed "+page);
+				updateRecord(page.substring(1,page.length-5)+"_time",(Date.now()-startInstant)/1000, dropErrors);
 			}
 		} else if (page == "#custom-page") {
 			//don't do anything
 		} else {
-			//good drop count = 4
 			if (dropCount==4){
-				//check relevant field is empty
-				//todo update pagename_time/pagename_errors
-				console.log("completed "+page);
+				updateRecord(page.substring(1,page.length-5)+"_time",(Date.now()-startInstant)/1000, dropErrors);
 			}
 		}
 	 }

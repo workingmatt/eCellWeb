@@ -14,9 +14,9 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/metrics', server_metrics.getm) //list all stored metrics
-  .post('/metrics', server_metrics.addm) //add ax§ new metric to the database
+  .post('/metrics', server_metrics.addm) //create a new metric record to the database
   .delete('/metrics', server_metrics.deletem) //delete metric 'auto inserted'
-  .put('/metrics', server_metrics.updatem)
+  .put('/metrics', server_metrics.updatem) //populate certain fields in the record created above.
 
   .get('/files', async(req,res) =>{
     //console.log(req.query.page);

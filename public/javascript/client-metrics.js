@@ -15,6 +15,18 @@ const deleteRecord = function(id){
 }
 
 const addRecord = function(){
-	$.post("/metrics", {"id":3,"name":"matt"});
+	//$.post("/metrics", {"id":3,"name":"matt"});
+	$.post("/metrics", function(data){
+		console.log(data);
+	});
 	//location.reload();
+}
+
+const updateRecord = function(event, timeElapsed, numErrorDrops){
+	console.log("kasdhflkajsdhflkajsdhflkasjdhf:"+event+" timeElapsed:"+timeElapsed+" numErrorDrops:"+numErrorDrops);
+	$.ajax({
+		url: "/metrics",
+		method: "PUT",
+		data: {"event":event, "timeElapsed": timeElapsed, "numErrorDrops": numErrorDrops}
+	});
 }
