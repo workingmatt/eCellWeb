@@ -33,9 +33,7 @@ const addm = async (req, res) => {
 		console.log(result.rows[0]["id"]);
 
 		res.write(result.rows[0]["id"].toString());
-		//({'id':'mr matyt'});
 		res.send();
-		//res.sendStatus(200);
 		client.release();
 	} catch (err) {
 		console.log(err);
@@ -59,8 +57,8 @@ const updatem = async (req, res) => {
 	console.log("Updating record");
 	try {
 		console.log(req.body);
-		//const client = await pool.connect();
-		//const result = await client.query("INSERT INTO results ")
+		const client = await pool.connect();
+		const result = await client.query("UPDATE results SET "+req.body.event+"_time = "+req.body.timeElapsed+", "+req.body.event+"_errors = "+req.body.numErrorDrops+" WHERE id = (SELECT Max(id) FROM results);");
 	} catch (err) {
 		console.log(err);
 		res.send("update error: "+err);

@@ -1,6 +1,7 @@
-$(document).ready(function(){
+var firstload = true;
 
-	location.hash = "#city_main-page";
+$(document).ready(function(){
+	//location.hash = "#city_main-page";
 	var imageNames;
 	var pageName = "nameOfPage";
 
@@ -8,6 +9,12 @@ $(document).ready(function(){
 	var startInstant = Date.now();
 	var dropCount;
 	var dropErrors;
+
+//<script type="text/javascript">window.onload = addRecord;</script>
+	if (firstload){
+		addRecord();
+		firstload = false;
+	}
 
 	var showPage = function(page){
 		$(".page").hide();
@@ -51,8 +58,8 @@ $(document).ready(function(){
 				var dropped = $(event.toElement.parentElement);
 				var dropzone = $(event.target);
 				var timestamp = (Date.now()-startInstant)/1000;
-				console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
-				console.log("errors:"+dropErrors+" good drop count:"+dropCount);
+				//console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
+				//console.log("errors:"+dropErrors+" good drop count:"+dropCount);
 			}
 		});
 	}
@@ -67,19 +74,18 @@ $(document).ready(function(){
 	var endDrag = function(event) {
 	 	var draggedDiv = $(event.target);
 	 	var page = window.location.hash;
-	 	console.log("working on page:"+page);
 	 	draggedDiv.removeClass("draggingMe");
 		$('.draggingMe > img').removeClass("draggingMe");
 
 		if((page == "#city_main-page")||(page == "#body_main-page")){
 			if (dropCount==6){
-				updateRecord(page.substring(1,page.length-5)+"_time",(Date.now()-startInstant)/1000, dropErrors);
+				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);
 			}
 		} else if (page == "#custom-page") {
 			//don't do anything
 		} else {
 			if (dropCount==4){
-				updateRecord(page.substring(1,page.length-5)+"_time",(Date.now()-startInstant)/1000, dropErrors);
+				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);
 			}
 		}
 	 }
