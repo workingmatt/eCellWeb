@@ -16,6 +16,7 @@ express()
   .get('/metrics', metrics.getm) //list all stored metrics
   .post('/metrics', metrics.addm) //add ax§ new metric to the database
   .delete('/metrics', metrics.deletem) //delete metric 'auto inserted'
+  .put('/metrics', metrics.updatem)
 
   .get('/files', async(req,res) =>{
     //console.log(req.query.page);

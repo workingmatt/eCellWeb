@@ -8,50 +8,16 @@ $(document).ready(function(){
 
 	//Variable for metrics
 	var startInstant = Date.now();
-
-	var times_cityMain = new Map();
-	var times_cityAirport = new Map();
-	var times_cityConstruction = new Map();
-	var times_cityHospital = new Map();
-	var times_cityRestaurant = new Map();
-	var times_cityRoad = new Map();
-	var times_cityScience = new Map();
-
-	var times_bodyMain = new Map();
-	var times_bodyBulb = new Map();
-	var times_bodyCutlery = new Map();
-	var times_bodyGust = new Map();
-	var times_bodyHeart = new Map();
-	var times_bodyScaffold = new Map();
-	var times_bodyShield = new Map();
-
-	var times_adipose = new Map();
-	var times_carcinoma = new Map();
-	var times_cardiomyocytes = new Map();
-	var times_endothelial = new Map();
-	var times_leukocytes = new Map();
-	var times_neurones = new Map();
-	var times_osteoclast = new Map();
-	var times_pulmonary = new Map();
-	//cityTimes.set(eventName,time_even-time_start);
-	
-	var times = {
-		times_cityMain,
-		times_cityAirport,
-		times_cityConstruction
-	}
-
-	var setEventTime = function(page, event){
-		times['times_'+page].set(event,((Date.now()-startInstant)/1000));
-		console.log('Set times_'+page+'['+event+']');
-	}
+	var dropCount;
+	var dropErrors;
 
 	var showPage = function(page){
 		$(".page").hide();
+		dropCount = 0;
+		dropErrors = 0;
 		$(page).show();
+		console.log(page);
 	}
-
-	showPage("#city-page");
 
 	$(window).on("hashchange", function(){
 		showPage(location.hash);
@@ -83,48 +49,38 @@ $(document).ready(function(){
 		$('.dropZone#'+targetId).droppable({
 			accept: tempId,
 			drop: function(event){
+				dropErrors--;
+				dropCount++;
 	 			var interval = (Date.now()-startInstant)/1000;
 				var dropped = $(event.toElement.parentElement);
-				var dropzone = $(event.target); 
+				var dropzone = $(event.target);
+				var timestamp = (Date.now()-startInstant)/1000
 				console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
-				//setEventTime(page, dropped.attr('id'));
-				ga('send', {
-					hitType: 'event',
-					eventAction: 'Successful Drop',
-					eventLabel: (Date.now()-startInstant)/1000
-				});
-				}
+				console.log("errors:"+dropErrors+" good drop count:"+dropCount);
 		});
 	}
 
 	//get top left position of draggable
 	var startDrag = function(event) {
+		dropErrors = dropErrors +1;
 		var draggedDiv = $(event.target);
-	 	var interval = (startInstant-Date.now())/1000;
-		console.log(draggedDiv);
 		draggedDiv.addClass("draggingMe");
 		$('.draggingMe > img').addClass("draggingMe");
-		$('#results').append(interval+': Start dragging '+draggedDiv.attr('id'));
 	}
 
 	var endDrag = function(event) {
 	 	var draggedDiv = $(event.target);
-	 	var interval = (startInstant-Date.now())/1000;
 	 	draggedDiv.removeClass("draggingMe");
 		$('.draggingMe > img').removeClass("draggingMe");
-		$('#results').append(interval+'s: Stop dragging '+draggedDiv.attr('id'));
 	 }
 
 	//get list of image files
 	var getDraggableImages = function(page) {
-		loadingImages = true;
 		$.ajax({
 			url: "/files",
 			data: {"page": page},
-			success: function(data){
-				loadingImages = false;
-				imageNames = data;
-
+			success: function(imageNames){
+				//got list of image filenames of form /images/page/file.png
 				imageNames.forEach(file => {
 					if (file !== "background.png" && file!==".DS_Store") {
 						filename = file.substring(0, file.length-4);
@@ -137,17 +93,12 @@ $(document).ready(function(){
 					containment: $(".div"),
 					snap: ".dragMe",
 					start: function(event){
-						console.log("Start drag");
 						startDrag(event);
 					},
 					stop: function(event){
-						console.log("Stop drag");
-						console.log(times);
 						endDrag(event);
 					}
 				});
-
-
 			}
 		});
 	} //end of getDraggableImages function

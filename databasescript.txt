@@ -1,0 +1,57 @@
+DROP TABLE results;
+CREATE TABLE results (
+id SERIAL PRIMARY KEY,
+start_instant TIMESTAMPTZ,
+
+city_main_time INT,
+city_airport_time INT,
+city_construction_time INT,
+city_hospital_time INT,
+city_restaurant_time INT,
+city_road_time INT,
+city_science_time INT,
+
+body_main_time INT,
+body_bulb_time INT,
+body_cutlery_time INT,
+body_gust_time INT,
+body_heart_time INT,
+body_scaffold_time INT,
+body_shield_time INT,
+
+adipose_time INT,
+carcinoma_time INT,
+cardiomyocytes_time INT,
+endothelial_time INT,
+leukocytes_time INT,
+neurones_time INT,
+osteoclast_time INT,
+pulmonary_time INT,
+
+city_main_errors INT,
+city_airport_errors INT,
+city_construction_errors INT,
+city_hospital_errors INT,
+city_restaurant_errors INT,
+city_road_errors INT,
+city_science_errors INT,
+
+body_main_errors INT,
+body_bulb_errors INT,
+body_cutlery_errors INT,
+body_gust_errors INT,
+body_heart_errors INT,
+body_scaffold_errors INT,
+body_shield_errors INT,
+
+adipose_errors INT,
+carcinoma_errors INT,
+cardiomyocytes_errors INT,
+endothelial_errors INT,
+leukocytes_errors INT,
+neurones_errors INT,
+osteoclast_errors INT,
+pulmonary_errors INT,
+
+custom_time INT
+)
