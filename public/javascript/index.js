@@ -23,7 +23,6 @@ $(document).ready(function(){
 		showPage(location.hash);
 	});
 
-
 	var makePage = function(name){
 		html = $('<div class="row">').append($('<div id="'+name+'-page" class="page" style="display: none;">')
 			.append('<div class="col-xs-1 col-sm-1 col-md-3"></div>')

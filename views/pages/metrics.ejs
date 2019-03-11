@@ -11,24 +11,101 @@
 	<h2>Metrics Page</h2>
 	<table>
 		<tr>
-			<th>id</th>
-			<th>Page Opened</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
-			<th>1</th>
+			<th>id %></td>
+			<th>start_instant %></td>
+			<th>city_main_time %></td>
+			<th>city_airport_time %></td>
+			<th>city_construction_time %></td>
+			<th>city_hospital_time %></td>
+			<th>city_restaurant_time %></td>
+			<th>city_road_time %></td>
+			<th>city_science_time %></td>
+			<th>body_main_time %></td>
+			<th>body_bulb_time %></td>
+			<th>body_cutlery_time %></td>
+			<th>body_gust_time %></td>
+			<th>body_heart_time %></td>
+			<th>body_scaffold_time %></td>
+			<th>body_shield_time %></td>
+			<th>adipose_time %></td>
+			<th>carcinoma_time %></td>
+			<th>cardiomyocytes_time %></td>
+			<th>endothelial_time %></td>
+			<th>leukocytes_time %></td>
+			<th>neurones_time %></td>
+			<th>osteoclast_time %></td>
+			<th>pulmonary_time %></td>
+			<th>city_main_errors %></td>
+			<th>city_airport_errors %></td>
+			<th>city_construction_errors %></td>
+			<th>city_hospital_errors %></td>
+			<th>city_restaurant_errors %></td>
+			<th>city_road_errors %></td>
+			<th>body_main_errors %></td>
+			<th>body_bulb_errors %></td>
+			<th>body_cutlery_errors %></td>
+			<th>body_gust_errors %></td>
+			<th>body_heart_errors %></td>
+			<th>body_scaffold_errors %></td>
+			<th>body_shield_errors %></td>
+			<th>adipose_errors %></td>
+			<th>carcinoma_errors %></td>
+			<th>cardiomyocytes_errors %></td>
+			<th>endothelial_errors %></td>
+			<th>leukocytes_errors %></td>
+			<th>neurones_errors %></td>
+			<th>osteoclast_errors %></td>
+			<th>pulmonary_errors %></td>
+			<th>custom_time %></td>
 		</tr>
 	    <% results.forEach(function(r) { %>
 	    	<tr>
 	    		<td><%= r.id %></td>
 	    		<td><%= r.start_instant %></td>
-	    		<td><%= r.city_main %></td>
-	    		<td><button onclick="showRecord(<%=r.id %>)">Show Record </button></td>
+	    		<td><%= r.city_main_time %></td>
+				<td><%= r.city_airport_time %></td>
+				<td><%= r.city_construction_time %></td>
+				<td><%= r.city_hospital_time %></td>
+				<td><%= r.city_restaurant_time %></td>
+				<td><%= r.city_road_time %></td>
+				<td><%= r.city_science_time %></td>
+				<td><%= r.body_main_time %></td>
+				<td><%= r.body_bulb_time %></td>
+				<td><%= r.body_cutlery_time %></td>
+				<td><%= r.body_gust_time %></td>
+				<td><%= r.body_heart_time %></td>
+				<td><%= r.body_scaffold_time %></td>
+				<td><%= r.body_shield_time %></td>
+				<td><%= r.adipose_time %></td>
+				<td><%= r.carcinoma_time %></td>
+				<td><%= r.cardiomyocytes_time %></td>
+				<td><%= r.endothelial_time %></td>
+				<td><%= r.leukocytes_time %></td>
+				<td><%= r.neurones_time %></td>
+				<td><%= r.osteoclast_time %></td>
+				<td><%= r.pulmonary_time %></td>
+				<td><%= r.city_main_errors %></td>
+				<td><%= r.city_airport_errors %></td>
+				<td><%= r.city_construction_errors %></td>
+				<td><%= r.city_hospital_errors %></td>
+				<td><%= r.city_restaurant_errors %></td>
+				<td><%= r.city_road_errors %></td>
+				<td><%= r.body_main_errors %></td>
+				<td><%= r.body_bulb_errors %></td>
+				<td><%= r.body_cutlery_errors %></td>
+				<td><%= r.body_gust_errors %></td>
+				<td><%= r.body_heart_errors %></td>
+				<td><%= r.body_scaffold_errors %></td>
+				<td><%= r.body_shield_errors %></td>
+				<td><%= r.adipose_errors %></td>
+				<td><%= r.carcinoma_errors %></td>
+				<td><%= r.cardiomyocytes_errors %></td>
+				<td><%= r.endothelial_errors %></td>
+				<td><%= r.leukocytes_errors %></td>
+				<td><%= r.neurones_errors %></td>
+				<td><%= r.osteoclast_errors %></td>
+				<td><%= r.pulmonary_errors %></td>
+				<td><%= r.custom_time %></td>
 	    		<td><button onclick="deleteRecord(<%=r.id %>)">Delete Record </button></td>
 	    	</tr>
 	    <% }); %>
@@ -39,5 +116,5 @@
 </div>
 </body>
 
-<script type="text/javascript" src="javascript/metrics.js"></script>
+<script type="text/javascript" src="javascript/client-metrics.js"></script>
 </html>

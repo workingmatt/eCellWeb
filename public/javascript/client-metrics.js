@@ -1,10 +1,8 @@
-console.log("metrics.js");
+console.log("client-metrics.js");
 
 $(document).ready(function() {
 	$(".page").hide();
 	$("#metrics").show();
-	//var stuff = $(document).results;
-	console.log($(document).results);
 
 });
 

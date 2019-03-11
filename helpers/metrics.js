@@ -7,8 +7,13 @@ const pool = new Pool({
 const getm = async function(req, res){
 	try {
  		const client = await pool.connect();
-  		const result = await client.query('SELECT * FROM results');
+  		const result = await client.query('SELECT * FROM results;');
   		const results = { 'results': (result) ? result.rows : null};
+
+  		//tried to get list of headers from query to set up table on metrics.ejs. couldn't send two data vars over res.render.
+	  		//const header = await client.query("SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'results';");
+	  		//const headers = { 'headers': (header) ? header.rows : null};
+
   		res.render('pages/metrics', results );
  		//res.status(201).send(results);
   		client.release();

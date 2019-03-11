@@ -2,6 +2,10 @@ table tr td{
     border: 3px solid blue;
 }
 
+th{
+    border: 2px solid red;
+    padding-left: 2px;
+}
 [class*="col-"] {
   border: 1px solid #80aa00;
   padding: 0;
