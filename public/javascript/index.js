@@ -73,7 +73,7 @@ $(document).ready(function(){
 	 	console.log("working on page:"+page);
 	 	draggedDiv.removeClass("draggingMe");
 		$('.draggingMe > img').removeClass("draggingMe");
-		if((page == "#city-main-page")||(page == "#body-main-page")){
+		if((page == "#city_main-page")||(page == "#body_main-page")){
 			//good drop count = 6
 			if (dropCount==6){
 				//check relevant field is empty
@@ -126,7 +126,7 @@ $(document).ready(function(){
 //TODO - add a json file to define location/size of dropzones rather than hardcode
 //TODO - once above is done, makeDropZone is loopable for all images found
 
-	pageName = "city-main";
+	pageName = "city_main";
 		makePage(pageName);
 		makeDropZone(pageName, "sciDrop", 40, 38, 18, 20, "science");
 		makeDropZone(pageName, "airDrop", 0, 9, 20, 25, "airport");
@@ -135,7 +135,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "hospDrop", 71, 23, 21, 17, "hospital");
 		makeDropZone(pageName, "roadDrop", 15, 17, 70, 60, "road");
 
-	pageName = "city-airport"
+	pageName = "city_airport"
 		makePage(pageName);
 		makeDropZone(pageName, "airEscalatorDrop", 0, 0, 100, 85, "airEscalator");
 		makeDropZone(pageName, "airGuardDrop", 0, 0, 100, 85, "airGuard");
@@ -144,7 +144,7 @@ $(document).ready(function(){
 		//makeDropZone(pageName, "airDisguiseDrop", 0, 0, 100, 85, "airDisguise");
 		//makeDropZone(pageName, "airToothDrop", 0, 0, 100, 85, "airTooth");
 
-	pageName = "city-construction"
+	pageName = "city_construction"
 		makePage(pageName);
 		makeDropZone(pageName, "consCautionDrop", 0, 0, 100, 85, "consCaution");
 		//makeDropZone(pageName, "consContactlessDrop", 0, 0, 100, 85, "consContactless");
@@ -153,7 +153,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "consOverheadDrop", 0, 0, 100, 85, "consOverhead");
 		makeDropZone(pageName, "consStopDrop", 0, 0, 100, 85, "consStop");
 
-	pageName = "city-hospital"
+	pageName = "city_hospital"
 		makePage(pageName);
 		makeDropZone(pageName, "hospAmbulanceDrop", 0,0,100,85,"hospAmbulance");
 		//makeDropZone(pageName, "hospBalloonDrop", 0,0,100,85,"hospBalloon");
@@ -162,7 +162,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "hospNurseDrop", 0,0,100,85,"hospNurse");
 		makeDropZone(pageName, "hospStethDrop", 0,0,100,85,"hospStethoscope");
 
-	pageName = "city-restaurant";
+	pageName = "city_restaurant";
 		makePage(pageName);
 		makeDropZone(pageName, "restCoffeeDrop", 0,0,100,85,"restCoffee");
 		makeDropZone(pageName, "restMealDrop", 0,0,100,85,"restMeal");
@@ -171,7 +171,7 @@ $(document).ready(function(){
 		//makeDropZone(pageName, "restTrafficLightsDrop", 0,0,100,85,"restTrafficLights");
 		makeDropZone(pageName, "restWineDrop", 0,0,100,85,"restWine");
 
-	pageName = "city-road";
+	pageName = "city_road";
 		makePage(pageName);
 		makeDropZone(pageName, "roadBikeDrop",0,0,100,85,"roadBike");
 		//makeDropZone(pageName, "roadEscalatorDrop",0,0,100,85,"roadEscalator");
@@ -180,7 +180,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "roadParkingDrop",0,0,100,85,"roadParking");
 		makeDropZone(pageName, "roadTrafficLightsDrop",0,0,100,85,"roadTrafficLights");
 
-	pageName = "city-science";
+	pageName = "city_science";
 		makePage(pageName);
 		//makeDropZone(pageName, "sciBikeDrop",0,0,100,85,"sciBike");
 		makeDropZone(pageName, "sciDnaDrop",0,0,100,85,"sciDna");
@@ -190,7 +190,7 @@ $(document).ready(function(){
 		//makeDropZone(pageName, "sciTrafficLightDrop",0,0,100,85,"sciTrafficLight");
 
 
-	pageName = "body-main"
+	pageName = "body_main"
 		makePage(pageName);
 		makeDropZone(pageName, "bulbDrop", 27, 0, 18, 20, "bulb");
 		makeDropZone(pageName, "cutleryDrop", 25, 42, 20, 18, "cutlery");
@@ -199,7 +199,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "scaffoldDrop", 0, 10, 65, 70, "scaffold");
 		makeDropZone(pageName, "shieldDrop", 70, 10, 30, 45, "shield");
 
-	pageName = "body-bulb"
+	pageName = "body_bulb"
 		makePage(pageName);
 		makeDropZone(pageName, "bulbChatDrop", 0, 0, 100, 85, "bulbChat");
 		makeDropZone(pageName, "bulbEyeDrop", 0, 0, 100, 85, "bulbEye");
@@ -208,7 +208,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "bulbSaveDrop", 0, 0, 100, 85, "bulbSave");
 		makeDropZone(pageName, "bulbWifiDrop", 0, 0, 100, 85, "bulbWifi");
 
-	pageName="body-cutlery"
+	pageName = "body_cutlery"
 		makePage(pageName);
 		makeDropZone(pageName, "cutleryBinDrop", 0, 0, 100, 85, "cutleryBin");
 		//makeDropZone(pageName, "cutleryHorseDrop", 0, 0, 100, 85, "cutleryHorse");
@@ -217,7 +217,7 @@ $(document).ready(function(){
 		//makeDropZone(pageName, "cutlerySockDrop", 0, 0, 100, 85, "cutlerySock");
 		makeDropZone(pageName, "cutleryToothDrop", 0, 0, 100, 85, "cutleryTooth");
 
-	pageName = "body-gust"
+	pageName = "body_gust"
 		makePage(pageName);
 		makeDropZone(pageName, "gustBalloonDrop", 0, 0, 100, 85, "gustBalloon");
 		makeDropZone(pageName, "gustBloodDrop", 0, 0, 100, 85, "gustBlood");
@@ -227,7 +227,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "gustSpeakerDrop", 0, 0, 100, 85, "gustSpeaker");
 
 
-	pageName = "body-heart"
+	pageName = "body_heart"
 		makePage(pageName);
 		makeDropZone(pageName, "heartBloodDrop", 0, 0, 100, 85, "heartBlood");
 		makeDropZone(pageName, "heartDrumsDrop", 0, 0, 100, 85, "heartDrums");
@@ -237,7 +237,7 @@ $(document).ready(function(){
 		makeDropZone(pageName, "heartSpringDrop", 0, 0, 100, 85, "heartSpring");
 
 
-	pageName = "body-scaffold"
+	pageName = "body_scaffold"
 		makePage(pageName);
 		//makeDropZone(pageName, "scafCowDrop", 0, 0, 100, 85, "scafCow");
 		makeDropZone(pageName, "scafPressDrop", 0, 0, 100, 85, "scafPress");
@@ -247,7 +247,7 @@ $(document).ready(function(){
 		//makeDropZone(pageName, "scafWineDrop", 0, 0, 100, 85, "scafWine");
 
 
-	pageName = "body-shield"
+	pageName = "body_shield"
 		makePage(pageName);
 		makeDropZone(pageName, "shieldCautionDrop", 0, 0, 100, 85, "shieldCaution");
 		makeDropZone(pageName, "shieldFightDrop", 0, 0, 100, 85, "shieldFight");
@@ -319,6 +319,6 @@ $(document).ready(function(){
 		makeDropZone(pageName, "3Drop", 0,43,50,85,"3");
 		makeDropZone(pageName, "4Drop", 50,43,100,85,"4");
 
-	showPage("#city-main-page");
+	showPage("#city_main-page");
 
 });
