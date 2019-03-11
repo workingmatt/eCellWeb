@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 
 	location.hash = "#city_main-page";

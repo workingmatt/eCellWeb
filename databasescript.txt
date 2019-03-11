@@ -1,7 +1,7 @@
 DROP TABLE results;
 CREATE TABLE results (
 id SERIAL PRIMARY KEY,
-start_instant TIMESTAMPTZ,
+start_instant TIMESTAMP,
 
 city_main_time INT,
 city_airport_time INT,

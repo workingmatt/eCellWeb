@@ -25,8 +25,10 @@ const getm = async function(req, res){
 
 const addm = async (req, res) => {
 	try {
+		var date;
+		date = new Date().toISOString().slice(0, 19).replace('T', ' ');
  		const client = await pool.connect();	
-		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '2016-06-22 19:10:25-07', 72);");
+		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '"+date+"', 45);");
 		res.status(201).send("added metric");
 		client.release();
 	} catch (err) {
@@ -56,13 +58,6 @@ const updatem = async (req, res) => {
 		res.send("update error: "+err);
 	}
 }
-
-
-
-	//const {name, email} = req.body;
-	//console.log(req.body);
-	//res.send(result);
-	//res.status(201).send('Response from server to addMetric');
 
 module.exports = {
 	addm,
