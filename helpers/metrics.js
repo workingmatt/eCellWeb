@@ -20,9 +20,8 @@ const getm = async function(req, res){
 
 const addm = async (req, res) => {
 	try {
-		console.log(req.body.id);
  		const client = await pool.connect();	
-		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '2016-06-22 19:10:25-07', 69);");
+		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '2016-06-22 19:10:25-07', 72);");
 		res.status(201).send("added metric");
 		client.release();
 	} catch (err) {

@@ -2,6 +2,8 @@
 
 $(document).ready(function(){
 
+	location.hash = "#city_main-page";
+
 	var imageNames;
 	var pageName = "nameOfPage";
 
@@ -15,7 +17,6 @@ $(document).ready(function(){
 		dropCount = 0;
 		dropErrors = 0;
 		$(page).show();
-		console.log(page);
 	}
 
 	$(window).on("hashchange", function(){

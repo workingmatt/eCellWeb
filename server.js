@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const fs = require('fs');
-const metrics = require('./helpers/metrics.js')
+const server_metrics = require('./helpers/metrics.js')
 
 
 express()
@@ -13,10 +13,10 @@ express()
   
   .get('/', (req, res) => res.render('pages/index'))
 
-  .get('/metrics', metrics.getm) //list all stored metrics
-  .post('/metrics', metrics.addm) //add ax§ new metric to the database
-  .delete('/metrics', metrics.deletem) //delete metric 'auto inserted'
-  .put('/metrics', metrics.updatem)
+  .get('/metrics', server_metrics.getm) //list all stored metrics
+  .post('/metrics', server_metrics.addm) //add ax§ new metric to the database
+  .delete('/metrics', server_metrics.deletem) //delete metric 'auto inserted'
+  .put('/metrics', server_metrics.updatem)
 
   .get('/files', async(req,res) =>{
     //console.log(req.query.page);
