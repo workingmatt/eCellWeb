@@ -29,7 +29,6 @@ const addm = async (req, res) => {
 		date = new Date().toISOString().slice(0, 19).replace('T', ' ');
  		const client = await pool.connect();	
 		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '"+date+"') RETURNING id;");
-		console.log("Added metrics record with id:"+result.rows[0]["id"]);
 		res.sendStatus(200);
 		client.release();
 	} catch (err) {
@@ -51,9 +50,7 @@ const deletem = async (req, res) => {
 }
 
 const updatem = async (req, res) => {
-	console.log("Updating record");
 	try {
-		console.log(req.body);
 		const client = await pool.connect();
 		const result = await client.query("UPDATE results SET "+req.body.event+"_time = "+req.body.timeElapsed+", "+req.body.event+"_errors = "+req.body.numErrorDrops+" WHERE id = (SELECT Max(id) FROM results);");
 		res.sendStatus(200);

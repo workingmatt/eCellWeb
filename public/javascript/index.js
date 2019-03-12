@@ -58,8 +58,6 @@ $(document).ready(function(){
 				var dropped = $(event.toElement.parentElement);
 				var dropzone = $(event.target);
 				var timestamp = (Date.now()-startInstant)/1000;
-				//console.log("Successful drop of id "+dropped.attr('id')+" on "+dropzone.attr('id'));
-				//console.log("errors:"+dropErrors+" good drop count:"+dropCount);
 			}
 		});
 	}
@@ -76,8 +74,6 @@ $(document).ready(function(){
 	 	var page = window.location.hash;
 	 	draggedDiv.removeClass("draggingMe");
 		$('.draggingMe > img').removeClass("draggingMe");
-
-		console.log("page:"+page+" dropCount:"+dropCount+" dropErrors:"+dropErrors);
 
 		if(((page == "#city_main-page")||(page == "#body_main-page"))&&dropCount==6){
 				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);
