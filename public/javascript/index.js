@@ -77,6 +77,8 @@ $(document).ready(function(){
 	 	draggedDiv.removeClass("draggingMe");
 		$('.draggingMe > img').removeClass("draggingMe");
 
+		console.log("page:"+page+" dropCount:"+dropCount+" dropErrors:"+dropErrors);
+
 		if((page == "#city_main-page")||(page == "#body_main-page")){
 			if (dropCount==6){
 				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);

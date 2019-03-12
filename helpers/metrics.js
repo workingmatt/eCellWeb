@@ -19,7 +19,7 @@ const getm = async function(req, res){
   		client.release();
   	} catch (err) {
   		console.error(err);
-  		res.send("Error: "+ err);
+  		res.send("helpers/metrics.js Error: "+ err);
   	}
 }
 
@@ -29,15 +29,12 @@ const addm = async (req, res) => {
 		date = new Date().toISOString().slice(0, 19).replace('T', ' ');
  		const client = await pool.connect();	
 		const result = await client.query("INSERT INTO results VALUES (DEFAULT, '"+date+"') RETURNING id;");
-	
-		console.log(result.rows[0]["id"]);
-
-		res.write(result.rows[0]["id"].toString());
-		res.send();
+		console.log("Added metrics record with id:"+result.rows[0]["id"]);
+		res.sendStatus(200);
 		client.release();
 	} catch (err) {
 		console.log(err);
-		res.send("addm Error: "+ err);
+		res.send("helpers/metrics.js addm Error: "+ err);
 	}
 }
 
@@ -49,7 +46,7 @@ const deletem = async (req, res) => {
 		client.release();
 	} catch (err) {
 		console.log(err);
-		res.send("deletem error: "+ err);
+		res.send("helpers/metrics.js deletem error: "+ err);
 	}
 }
 
@@ -59,9 +56,10 @@ const updatem = async (req, res) => {
 		console.log(req.body);
 		const client = await pool.connect();
 		const result = await client.query("UPDATE results SET "+req.body.event+"_time = "+req.body.timeElapsed+", "+req.body.event+"_errors = "+req.body.numErrorDrops+" WHERE id = (SELECT Max(id) FROM results);");
+		res.sendStatus(200);
 	} catch (err) {
 		console.log(err);
-		res.send("update error: "+err);
+		res.send("helpers/metrics.js update error: "+err);
 	}
 }
 
