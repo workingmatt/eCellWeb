@@ -11,100 +11,129 @@
 	<h2>Metrics Page</h2>
 	<table>
 		<tr>
-			<th>id %></td>
-			<th>start_instant %></td>
-			<th>city_main_time %></td>
-			<th>city_airport_time %></td>
-			<th>city_construction_time %></td>
-			<th>city_hospital_time %></td>
-			<th>city_restaurant_time %></td>
-			<th>city_road_time %></td>
-			<th>city_science_time %></td>
-			<th>body_main_time %></td>
-			<th>body_bulb_time %></td>
-			<th>body_cutlery_time %></td>
-			<th>body_gust_time %></td>
-			<th>body_heart_time %></td>
-			<th>body_scaffold_time %></td>
-			<th>body_shield_time %></td>
-			<th>adipose_time %></td>
-			<th>carcinoma_time %></td>
-			<th>cardiomyocytes_time %></td>
-			<th>endothelial_time %></td>
-			<th>leukocytes_time %></td>
-			<th>neurones_time %></td>
-			<th>osteoclast_time %></td>
-			<th>pulmonary_time %></td>
-			<th>city_main_errors %></td>
-			<th>city_airport_errors %></td>
-			<th>city_construction_errors %></td>
-			<th>city_hospital_errors %></td>
-			<th>city_restaurant_errors %></td>
-			<th>city_road_errors %></td>
-			<th>body_main_errors %></td>
-			<th>body_bulb_errors %></td>
-			<th>body_cutlery_errors %></td>
-			<th>body_gust_errors %></td>
-			<th>body_heart_errors %></td>
-			<th>body_scaffold_errors %></td>
-			<th>body_shield_errors %></td>
-			<th>adipose_errors %></td>
-			<th>carcinoma_errors %></td>
-			<th>cardiomyocytes_errors %></td>
-			<th>endothelial_errors %></td>
-			<th>leukocytes_errors %></td>
-			<th>neurones_errors %></td>
-			<th>osteoclast_errors %></td>
-			<th>pulmonary_errors %></td>
-			<th>custom_time %></td>
+			<th colspan=2></th>
+			<th colspan=2>City Main</th>
+			<th colspan=2>City Airport</th>
+			<th colspan=2>City Construction</th>
+			<th colspan=2>City Hospital</th>
+			<th colspan=2>City Restaurant</th>
+			<th colspan=2>City Road</th>
+			<th colspan=2>City Laboratory</th>
+			<th colspan=2>Body Main</th>
+			<th colspan=2>Body Bulb</th>
+			<th colspan=2>Body Cutlery</th>
+			<th colspan=2>Body Gust</th>
+			<th colspan=2>Body Heart</th>
+			<th colspan=2>Body Scaffold</th>
+			<th colspan=2>Body Shield</th>
+			<th colspan=2>Cell Adipose</th>
+			<th colspan=2>Cell Carcinoma</th>
+			<th colspan=2>Cell Cardiomyocytes</th>
+			<th colspan=2>Cell Endothelial</th>
+			<th colspan=2>Cell Leukocytes</th>
+			<th colspan=2>Cell Neurones</th>
+			<th colspan=2>Cell Osteoclast</th>
+			<th colspan=2>Cell Pulmonary Epithilial</th>
+			<th colspan=1>Custom</th>
+		</tr>
+		<tr>
+			<th>id </td>
+			<th>start_instant </td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</td>
+			<th>errors</td>
+			<th>time</th>
 		</tr>
 	    <% results.forEach(function(r) { %>
 	    	<tr>
 	    		<td><%= r.id %></td>
 	    		<td><%= r.start_instant %></td>
 	    		<td><%= r.city_main_time %></td>
-				<td><%= r.city_airport_time %></td>
-				<td><%= r.city_construction_time %></td>
-				<td><%= r.city_hospital_time %></td>
-				<td><%= r.city_restaurant_time %></td>
-				<td><%= r.city_road_time %></td>
-				<td><%= r.city_science_time %></td>
-				<td><%= r.body_main_time %></td>
-				<td><%= r.body_bulb_time %></td>
-				<td><%= r.body_cutlery_time %></td>
-				<td><%= r.body_gust_time %></td>
-				<td><%= r.body_heart_time %></td>
-				<td><%= r.body_scaffold_time %></td>
-				<td><%= r.body_shield_time %></td>
-				<td><%= r.adipose_time %></td>
-				<td><%= r.carcinoma_time %></td>
-				<td><%= r.cardiomyocytes_time %></td>
-				<td><%= r.endothelial_time %></td>
-				<td><%= r.leukocytes_time %></td>
-				<td><%= r.neurones_time %></td>
-				<td><%= r.osteoclast_time %></td>
-				<td><%= r.pulmonary_time %></td>
 				<td><%= r.city_main_errors %></td>
+				<td><%= r.city_airport_time %></td>
 				<td><%= r.city_airport_errors %></td>
+				<td><%= r.city_construction_time %></td>
 				<td><%= r.city_construction_errors %></td>
+				<td><%= r.city_hospital_time %></td>
 				<td><%= r.city_hospital_errors %></td>
+				<td><%= r.city_restaurant_time %></td>
 				<td><%= r.city_restaurant_errors %></td>
+				<td><%= r.city_road_time %></td>
 				<td><%= r.city_road_errors %></td>
+				<td><%= r.city_science_time %></td>
+				<td><%= r.city_science_errors %></td>
+				<td><%= r.body_main_time %></td>
 				<td><%= r.body_main_errors %></td>
+				<td><%= r.body_bulb_time %></td>
 				<td><%= r.body_bulb_errors %></td>
+				<td><%= r.body_cutlery_time %></td>
 				<td><%= r.body_cutlery_errors %></td>
+				<td><%= r.body_gust_time %></td>
 				<td><%= r.body_gust_errors %></td>
+				<td><%= r.body_heart_time %></td>
 				<td><%= r.body_heart_errors %></td>
+				<td><%= r.body_scaffold_time %></td>
 				<td><%= r.body_scaffold_errors %></td>
+				<td><%= r.body_shield_time %></td>
 				<td><%= r.body_shield_errors %></td>
+				<td><%= r.adipose_time %></td>
 				<td><%= r.adipose_errors %></td>
+				<td><%= r.carcinoma_time %></td>
 				<td><%= r.carcinoma_errors %></td>
+				<td><%= r.cardiomyocytes_time %></td>
 				<td><%= r.cardiomyocytes_errors %></td>
+				<td><%= r.endothelial_time %></td>
 				<td><%= r.endothelial_errors %></td>
+				<td><%= r.leukocytes_time %></td>
 				<td><%= r.leukocytes_errors %></td>
+				<td><%= r.neurones_time %></td>
 				<td><%= r.neurones_errors %></td>
+				<td><%= r.osteoclast_time %></td>
 				<td><%= r.osteoclast_errors %></td>
+				<td><%= r.pulmonary_time %></td>
 				<td><%= r.pulmonary_errors %></td>
+
 				<td><%= r.custom_time %></td>
 	    		<td><button onclick="deleteRecord(<%=r.id %>)">Delete Record </button></td>
 	    	</tr>

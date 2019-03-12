@@ -53,5 +53,6 @@ neurones_errors INT,
 osteoclast_errors INT,
 pulmonary_errors INT,
 
-custom_time INT
+custom_time INT,
+custom_errors INT
 )

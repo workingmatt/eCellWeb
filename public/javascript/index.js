@@ -1,7 +1,7 @@
 var firstload = true;
 
 $(document).ready(function(){
-	//location.hash = "#city_main-page";
+	location.hash = "#city_main-page";
 	var imageNames;
 	var pageName = "nameOfPage";
 
@@ -79,12 +79,10 @@ $(document).ready(function(){
 
 		console.log("page:"+page+" dropCount:"+dropCount+" dropErrors:"+dropErrors);
 
-		if((page == "#city_main-page")||(page == "#body_main-page")){
-			if (dropCount==6){
+		if(((page == "#city_main-page")||(page == "#body_main-page"))&&dropCount==6){
 				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);
-			}
-		} else if (page == "#custom-page") {
-			//don't do anything
+		} else if ((page == "#custom-page") && (dropCount==0)) {
+				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);
 		} else {
 			if (dropCount==4){
 				updateRecord(page.substring(1,page.length-5),(Date.now()-startInstant)/1000, dropErrors);
